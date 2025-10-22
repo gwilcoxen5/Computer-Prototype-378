@@ -1,0 +1,6 @@
+@DietAppBackend_HostAddress = http://localhost:5188
+
+GET {{DietAppBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,11 @@
+bin/
+obj/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.log
+.env
+Properties/launchSettings.json
+.idea/
+.vs/
