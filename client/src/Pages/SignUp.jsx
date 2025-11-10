@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+const SignUp = () => {
+    const[firstName, setFirstName] = useState("");
+    const[lastName, setLastName] = useState("");
+    const[email, setEmail] = useState("");
+    const[username, setUsername] = useState("");
+    const[password, setPassword] = useState("");
+    const[confirmPassword, setConfirmPassword] = useState("");
+    const[error, setError] = useState("");
+
+    
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setError("");
+
+        if (password !== confirmPassword) {
+            setError("Passwords do not match.");
+            return;
+        }
+        // Logic to send to backend database will goß here:
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <h1 className="sign-up text">Sign up</h1>
+            {error && <p style={{ color: 'red'}}>{error}</p>}
+        <div className="sign-up-container">
+            <div className="form-group">
+                <label>First Name:</label>
+                <input className="first-name-input"
+                    type="firstName"
+                    id="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Last Name:</label>
+                <input className="last-name-input"
+                    type="lastName"
+                    id="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Username:</label>
+                <input classname="username-input"
+                    type="username"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Email:</label>
+                <input className="email-input"
+                    type="email"
+                    id="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Password:</label>
+                <input className="password-input"
+                    type="password"
+                    id="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Confirm Password:</label>
+                <input className="confirm-pass-input"
+                    type="confirm-password"
+                    id="ConfirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                />
+            </div>
+        <button type="submit">Sign Up</button>
+        <button type="back-btn" onClick={() => navigate(-1)}>Back</button>
+        </div>
+        </form>
+    );
+};
+
+export default SignUp;

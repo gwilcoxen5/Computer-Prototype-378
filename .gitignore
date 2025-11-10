@@ -9,3 +9,9 @@ obj/
 Properties/launchSettings.json
 .idea/
 .vs/
+node_modules
+dist
+.vite
+.env
+.env.*
+.DS_Store
