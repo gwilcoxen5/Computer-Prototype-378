@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "../Styling/SignUp.css";
 
 const SignUp = () => {
     const[firstName, setFirstName] = useState("");
@@ -26,79 +27,84 @@ const SignUp = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1 className="sign-up text">Sign up</h1>
-            {error && <p style={{ color: 'red'}}>{error}</p>}
-        <div className="sign-up-container">
-            <div className="form-group">
-                <label>First Name:</label>
-                <input className="first-name-input"
-                    type="firstName"
-                    id="firstName"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                />
-            </div>
+    <main className="signup-page">
+        <div className="background-container">
+            <form onSubmit={handleSubmit}>
+                <h1 className="sign-up-title">Sign up</h1>
+                {error && <p style={{ color: 'red'}}>{error}</p>}
+            <div className="sign-up-container">
+                <div className="form-group">
+                    <label>First Name:</label>
+                    <input className="first-name-input"
+                        type="firstName"
+                        id="firstName"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                    />
+                </div>
 
-            <div className="form-group">
-                <label>Last Name:</label>
-                <input className="last-name-input"
-                    type="lastName"
-                    id="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                />
-            </div>
+                <div className="form-group">
+                    <label>Last Name:</label>
+                    <input className="last-name-input"
+                        type="lastName"
+                        id="lastName"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                    />
+                </div>
 
-            <div className="form-group">
-                <label>Username:</label>
-                <input classname="username-input"
-                    type="username"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-            </div>
+                <div className="form-group">
+                    <label>Username:</label>
+                    <input classname="username-input"
+                        type="username"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
 
-            <div className="form-group">
-                <label>Email:</label>
-                <input className="email-input"
-                    type="email"
-                    id="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </div>
+                <div className="form-group">
+                    <label>Email:</label>
+                    <input className="email-input"
+                        type="email"
+                        id="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
 
-            <div className="form-group">
-                <label>Password:</label>
-                <input className="password-input"
-                    type="password"
-                    id="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </div>
+                <div className="form-group">
+                    <label>Password:</label>
+                    <input className="password-input"
+                        type="password"
+                        id="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
 
-            <div className="form-group">
-                <label>Confirm Password:</label>
-                <input className="confirm-pass-input"
-                    type="confirm-password"
-                    id="ConfirmPassword"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
+                <div className="form-group">
+                    <label>Confirm Password:</label>
+                    <input className="confirm-pass-input"
+                        type="confirm-password"
+                        id="ConfirmPassword"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                </div>
+            {/* Navigates back to login to confirm login */}
+            <button className="submit-btn" type="submit" onClick={() => navigate("/userDetail")}>Sign Up</button>
             </div>
-        <button type="submit">Sign Up</button>
-        <button type="back-btn" onClick={() => navigate(-1)}>Back</button>
+            </form>
+            <button type="back-btn" onClick={() => navigate(-1)}>Back</button>
         </div>
-        </form>
+    </main>
     );
 };
 

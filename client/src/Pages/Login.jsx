@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import "../Styling/Login.css";
 
 const Login = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState("");
@@ -35,44 +36,46 @@ const Login = ({ onLoginSuccess }) => {
 
     return (
         <main className="login-page">
-            <div className="login-container">
+            <div className="background-container">
                 <h2 className="login-title">Welcome</h2>
-                <p className="login-text">Log in to Continue.</p>
+                <div className="login-container">
+                    <p className="login-text">Log in to Continue.</p>
 
-                {message && <p className="login-message"></p>}
+                    {message && <p className="login-message"></p>}
 
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label>Username</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            placeholder="you@email.com"
-                        />
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label className="email-title">Email</label>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                placeholder="you@email.com"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input 
+                                type="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                placeholder="Enter your password"
+                            />
+                        </div>
+                        <button className ="submit-btn" type="submit">
+                            Log In
+                        </button>
+                    </form>
+                    <div className="sign-up-text">
+                            Don't have an account? 
                     </div>
-
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input 
-                            type={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            placeholder="Enter your password"
-                        />
+                    <div className="sign-up-container">
+                        <button className="signup-link" type="button" onClick={() => navigate("/signup")}>Sign up</button>
+                        <button className="back-btn" type="button" onClick={() => navigate(-1)}>Back</button>     
                     </div>
-
-                    <button className ="submit-btn" type="submit">
-                        Log In
-                    </button>
-
-                    <p className="sign-up-text">
-                        Don't have an account? 
-                        <button className="signup-link" onClick={() => navigate("/signup")}>Sign up</button>
-                        <button className="back-btn" onClick={() => navigate(-1)}>Back</button>
-                    </p>
-                </form>
+                </div>
             </div>
         </main>
     );

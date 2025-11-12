@@ -1,0 +1,35 @@
+html, body, #root { height: 100%; }
+body { margin: 0; }
+
+.background-container {
+    position: fixed;
+    inset: 0;
+    background-image: url('../assets/login-signup-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.sign-up-title {
+    position: relative;
+    display: grid;
+    color: black;
+    font-size: 70px;
+    padding-top: 3.5rem;  
+}
+
+.form-group input[type="firstName"],
+.form-group input[type="lastName"],
+.form-group input[type="username"],
+.form-group input[type="confirm-password"] {
+    width: 250px;
+    padding: 10px;
+    background-color: aliceblue;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
