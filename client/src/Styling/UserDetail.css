@@ -1,0 +1,130 @@
+.general-background-container {
+    position: fixed;
+    inset: 0;
+    background-image: url('../assets/diet-app-background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.page-title {
+    position: relative;
+    display: grid;
+    color: black;
+    font-size: 70px;
+    text-decoration: underline;
+    text-decoration-thickness: 9px;
+}
+
+.goal-choice-prompt {
+    position: relative;
+    top: -20px;
+    color: black;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.selected-goal-display {
+    position: relative;
+    top: -65px;
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.goal-choice {
+    position: relative;
+    top: -95px;
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+    
+}
+
+.goal-choice-container {
+    position: relative;
+    top: -90px;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 3rem;
+    
+}
+.weight-gain-btn {
+    padding: 1.5rem;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.weight-maintain-btn {
+    padding: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.weight-loss-btn {
+    padding: 1.5rem;
+    margin-left: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.clicked {
+    background-color: forestgreen;
+    color: white;
+}
+
+.info-form {
+    position: relative;
+    top: -110px;
+}
+
+.current-weight-prompt,
+.desired-weight-prompt {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    margin-block-start: 0%
+}
+
+
+.info-form input[type="number"],
+.info-form input[type="desiredWeight"] {
+    width: 130px;
+    padding: 10px;
+    background-color: aliceblue;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+.tail-text {
+    font-weight: bold;
+    color: black;
+    margin-right: 2px;
+}
+
+.time-interval-prompt {
+    position: relative;
+    bottom: -25px;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+
+}
+
+.time-interval-select {
+    position: relative;
+    bottom: -30px;
+    padding: 10px 25px;
+    font-size: 14px;
+    color: black;
+    background-color: aliceblue;
+}
