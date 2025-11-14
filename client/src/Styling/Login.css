@@ -18,13 +18,15 @@ body { margin: 0; }
 
 .login-title {
     position: relative;
+    top: 65px;
     display: grid;
     color: black;
     font-size: 70px;
-    padding-top: 3.5rem;
 }
 
 .login-text {
+    position: relative;
+    top: -25px;
     display: grid;
     font-size: 25px;
     font-weight: bold;
@@ -32,18 +34,18 @@ body { margin: 0; }
 }
 
 .login-container {
+    position: relative;
     display: grid;
     place-items: center;
-    position: relative;
     z-index: 1;
 }
-
 
 .form-group {
     display: block;
     padding-bottom: 1rem;
 }
 
+.form-group label,
 .form-group label {
     display: block;
     font-weight: bold;
@@ -51,8 +53,10 @@ body { margin: 0; }
     margin-block-start: 0%
 }
 
-.form-group input[type="email"],
-.form-group input[type="password"] {
+.form-group input[type="login-email"],
+.form-group input[type="login-password"] {
+    position: relative;
+    top: -30px;
     width: 250px;
     padding: 10px;
     background-color: aliceblue;

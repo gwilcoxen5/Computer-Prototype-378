@@ -13,16 +13,25 @@ body { margin: 0; }
 
 .sign-up-title {
     position: relative;
+    top: -10px;
     display: grid;
     color: black;
     font-size: 70px;
     padding-top: 3.5rem;  
 }
 
-.form-group input[type="firstName"],
-.form-group input[type="lastName"],
+.form-group label {
+    position: relative;
+    top: -30px;
+}
+
+.form-group input[type="fullName"],
 .form-group input[type="username"],
+.form-group input[type="email"],
+.form-group input[type="password"],
 .form-group input[type="confirm-password"] {
+    position: relative;
+    top: -30px;
     width: 250px;
     padding: 10px;
     background-color: aliceblue;

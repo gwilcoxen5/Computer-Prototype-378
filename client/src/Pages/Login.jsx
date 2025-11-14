@@ -45,9 +45,9 @@ const Login = ({ onLoginSuccess }) => {
 
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label className="email-title">Email</label>
+                            <label className='login-email'>Email</label>
                             <input
-                                type="email"
+                                type="login-email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -56,9 +56,9 @@ const Login = ({ onLoginSuccess }) => {
                         </div>
 
                         <div className="form-group">
-                            <label>Password</label>
+                            <label className='login-password'>Password</label>
                             <input 
-                                type="password"
+                                type="login-password"
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 placeholder="Enter your password"

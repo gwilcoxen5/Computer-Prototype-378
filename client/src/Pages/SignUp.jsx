@@ -4,8 +4,7 @@ import axios from 'axios';
 import "../Styling/SignUp.css";
 
 const SignUp = () => {
-    const[firstName, setFirstName] = useState("");
-    const[lastName, setLastName] = useState("");
+    const[fullName, setFullName] = useState("");
     const[email, setEmail] = useState("");
     const[username, setUsername] = useState("");
     const[password, setPassword] = useState("");
@@ -34,23 +33,12 @@ const SignUp = () => {
                 {error && <p style={{ color: 'red'}}>{error}</p>}
             <div className="sign-up-container">
                 <div className="form-group">
-                    <label>First Name:</label>
-                    <input className="first-name-input"
-                        type="firstName"
-                        id="firstName"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Last Name:</label>
-                    <input className="last-name-input"
-                        type="lastName"
-                        id="lastName"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
+                    <label>Full Name:</label>
+                    <input className="full-name-input"
+                        type="fullName"
+                        id="fullName"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
                         required
                     />
                 </div>
