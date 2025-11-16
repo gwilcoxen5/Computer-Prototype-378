@@ -6,6 +6,7 @@ const MealsOfTheDay = () => {
 
     const navigate = useNavigate();
 
+	//TODO: Only show meals that fit the time of day
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 {/* All variables below is for test input (ADD LOGIC LATER) */}
@@ -15,6 +15,16 @@ const Goals = () => {
     const[endGoal, setEndGoal] = useState("");
 
     const navigate = useNavigate();
+
+	//TODO: Get an actual meal recommendation
+	const [rows, setRows] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:4000/api/config/1")
+			.then(res => res.json())
+			.then(data => setRows(data))
+			.catch(console.error);
+	}, []);
 
 return ( 
     <main>
@@ -37,6 +47,14 @@ return (
 
     {/* Recconmended Meal Section (Logic Needed) */}
     <section>Reconmeded Meal:</section>
+		<ul>
+			{rows.map(row => (
+				<li key={row.id}>
+					<strong>{row.name}</strong> - {row.dietary}
+				</li>
+			))}
+		</ul>
+
     </main>
    
 );
