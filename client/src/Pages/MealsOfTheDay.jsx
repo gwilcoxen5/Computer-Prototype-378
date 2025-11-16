@@ -8,7 +8,7 @@ useEffect(() => {
 		.then(res => res.json())
 		.then(data => setRows(data));
 		.catch(console.error);
-}. []);
+}, []);
 
 const MealsOfTheDay = () => {
 
