@@ -25,11 +25,6 @@ db.prepare(`
 	)
 `).run();
 
-// Test table
-const name = "Brownies";
-const dietary = "450 Cal, not dairy-free, not egg-free";
-const ingredients = "chocolate milk vegetable-oil egg";
-
 // Adds tables to SQL database
 const rowCount = db.prepare("SELECT COUNT(*) AS count FROM config").get().count;
 if (rowCount === 0) {
