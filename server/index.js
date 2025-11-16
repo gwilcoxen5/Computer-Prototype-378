@@ -9,12 +9,19 @@ app.use(cors());
 app.use(express.json());
 
 // Creates a table setup for SQL database
+// name : name of the meal
+// dietary : quick dietary information like caloric value
+// ingredients : space delineated list of ingredients
+// plan : what plan for which this meal is applicable
+// type : whether the meal is a breakfast, lunch, or dinner food
 db.prepare(`
 	CREATE TABLE IF NOT EXISTS config (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name TEXT NOT NULL,
 	dietary TEXT NOT NULL,
-	ingredients TEXT NOT NULL
+	ingredients TEXT NOT NULL,
+	plan TEXT NOT NULL,
+	type TEXT NOT NULL
 	)
 `).run();
 
