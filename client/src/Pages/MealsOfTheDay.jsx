@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function MealList() {
-	const [rows, setRows] = useState([]);
+const [rows, setRows] = useState([]);
 
-	useEffect(() => {
-		fetch("http://localhost:4000/api/meal")
-			.then(res => res.json())
-			.then(data => setRows(data));
-	}. []);
+useEffect(() => {
+	fetch("http://localhost:4000/api/meal")
+		.then(res => res.json())
+		.then(data => setRows(data));
+}. []);
 
 const MealsOfTheDay = () => {
 
