@@ -20,7 +20,7 @@ const Goals = () => {
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:4000/api/config/latest")
+		fetch("http://localhost:4000/api/config/1")
 			.then(res => res.json())
 			.then(data => setRows(data))
 			.catch(console.error);
