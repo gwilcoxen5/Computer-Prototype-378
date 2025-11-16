@@ -28,9 +28,9 @@ db.prepare(`
 // Adds tables to SQL database
 const rowCount = db.prepare("SELECT COUNT(*) AS count FROM config").get().count;
 if (rowCount === 0) {
-	const insert = db.prepare("INSERT INTO config (name, dietary, ingredients) VALUES (?, ?, ?)");
+	const insert = db.prepare("INSERT INTO config (name, dietary, ingredients, plan, type) VALUES (?, ?, ?, ?, ")");
 
-	insert.run(name, dietary, ingredients);
+	insert.run("Brownies", "450 Cal, not dairy-free, not egg-free", "eggs milk chocolate flour oil butter", "dinner");
 }
 
 // GET route
