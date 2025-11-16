@@ -45,7 +45,7 @@ app.get("/api/config/:id", (req, res) => {
 	const id = req.params.id;
 	const row = db.prepare("SELECT * FROM config WHERE id = ?").get(id);
 	if (!row) return res.status(404).json({ error: "not found"});
-	res.json(row_;
+	res.json(row);
 });
 
 app.listen(4000, () => {
