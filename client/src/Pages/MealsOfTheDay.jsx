@@ -7,6 +7,7 @@ useEffect(() => {
 	fetch("http://localhost:4000/api/meal")
 		.then(res => res.json())
 		.then(data => setRows(data));
+		.catch(console.error);
 }. []);
 
 const MealsOfTheDay = () => {
