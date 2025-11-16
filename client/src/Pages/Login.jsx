@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 import "../Styling/Login.css";
 
 const Login = ({ onLoginSuccess }) => {
@@ -34,51 +35,54 @@ const Login = ({ onLoginSuccess }) => {
         }
     };
 
-    return (
+return (
+  <>
+    <div className='background-container' />
+        
+    <div className='page-content'>
         <main className="login-page">
-            <div className="background-container">
-                <h2 className="login-title">Welcome</h2>
-                <div className="login-container">
-                    <p className="login-text">Log in to Continue.</p>
+            <h2 className="login-title">Welcome</h2>
+            <div className="login-container">
+                <p className="login-text">Log in to Continue.</p>
 
-                    {message && <p className="login-message"></p>}
+                {message && <p className="login-message"></p>}
 
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label className='login-email'>Email</label>
-                            <input
-                                type="login-email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                                placeholder="you@email.com"
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label className='login-password'>Password</label>
-                            <input 
-                                type="login-password"
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                                placeholder="Enter your password"
-                            />
-                        </div>
-                        <button className ="submit-btn" type="submit">
-                            Log In
-                        </button>
-                    </form>
-                    <div className="sign-up-text">
-                            Don't have an account? 
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label className='login-email'>Email</label>
+                        <input
+                            type="login-email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            placeholder="you@email.com"
+                        />
                     </div>
-                    <div className="sign-up-container">
-                        <button className="signup-link" type="button" onClick={() => navigate("/signup")}>Sign up</button>
-                        <button className="back-btn" type="button" onClick={() => navigate(-1)}>Back</button>     
+                    <div className="form-group">
+                        <label className='login-password'>Password</label>
+                        <input 
+                            type="login-password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            placeholder="Enter your password"
+                        />
                     </div>
+                    <button className ="submit-btn" type="submit">
+                        Log In
+                    </button>
+                </form>
+                <div className="sign-up-text">
+                    Don't have an account? 
+                </div>
+                <div className="sign-up-container">
+                    <button className="signup-link" type="button" onClick={() => navigate("/signup")}>Sign up</button>
+                    <button className="back-btn" type="button" onClick={() => navigate(-1)}>Back</button>     
                 </div>
             </div>
         </main>
-    );
+    </div>
+ </>
+);
 };
 
 export default Login;

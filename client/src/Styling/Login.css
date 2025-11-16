@@ -1,19 +1,12 @@
-html, body, #root { height: 100%; }
-body { margin: 0; }
-
+.page-content {
+    min-height:100vh;
+    position: relative;
+    z-index: 1;
+}
+  
 .login-page {
     position: relative; 
     z-index: 1; 
-}
-
-.background-container {
-    position: fixed;
-    inset: 0;
-    background-image: url('../assets/login-signup-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
 }
 
 .login-title {

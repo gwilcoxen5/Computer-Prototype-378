@@ -1,21 +1,23 @@
-.general-background-container {
-    position: fixed;
-    inset: 0;
-    background-image: url('../assets/diet-app-background.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-
 .page-title {
     position: relative;
     display: grid;
     color: black;
     font-size: 70px;
-    text-decoration: underline;
-    text-decoration-thickness: 9px;
 }
+
+.page-content {
+    min-height:100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.user-detail-page {
+    position: relative;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+}
+
 
 .goal-choice-prompt {
     position: relative;
@@ -23,6 +25,8 @@
     color: black;
     font-weight: bold;
     font-size: 45px;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
 }
 
 .selected-goal-display {
@@ -52,6 +56,7 @@
     padding-bottom: 3rem;
     
 }
+
 .weight-gain-btn {
     padding: 1.5rem;
     margin-right: 15px;
@@ -91,7 +96,6 @@
     margin-block-start: 0%
 }
 
-
 .info-form input[type="number"],
 .info-form input[type="desiredWeight"] {
     width: 130px;
@@ -102,7 +106,6 @@
     border-radius: 10px;
     box-sizing: border-box;
 }
-
 
 .tail-text {
     font-weight: bold;
