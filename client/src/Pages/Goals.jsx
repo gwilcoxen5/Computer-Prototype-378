@@ -22,9 +22,7 @@ const Goals = () => {
 	useEffect(() => {
 		fetch("http://localhost:4000/api/config/1")
 			.then(res => res.json())
-			.then(data => {
-				setRow(data);
-			});
+			.then(data => setRow(data));
 	}, []);
 
 return ( 
