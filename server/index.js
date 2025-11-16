@@ -30,8 +30,8 @@ const rowCount = db.prepare("SELECT COUNT(*) AS count FROM config").get().count;
 if (rowCount === 0) {
 	const insert = db.prepare("INSERT INTO config (name, dietary, ingredients, plan, type) VALUES (?, ?, ?, ?, ?)");
 
-	insert.run("Brownies", "450 Cal, not dairy-free, not egg-free", "eggs milk chocolate flour oil butter", "dinner");
-	insert.run("Apple", "950 Cal, organic", "apple", "lunch");
+	insert.run("Brownies", "450 Cal, not dairy-free, not egg-free", "eggs milk chocolate flour oil butter", "gain", "dinner");
+	insert.run("Apple", "950 Cal, organic", "apple", "maintain", "lunch");
 }
 
 // GET route
