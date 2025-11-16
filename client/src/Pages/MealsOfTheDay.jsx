@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const [rows, setRows] = useState([]);
-
-useEffect(() => {
-	fetch("http://localhost:4000/api/meal")
-		.then(res => res.json())
-		.then(data => setRows(data))
-		.catch(console.error);
-}, []);
 
 const MealsOfTheDay = () => {
 
     const navigate = useNavigate();
-    // Logic to host meals needed here 
+
+	const [rows, setRows] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:4000/api/meal")
+			.then(res => res.json())
+			.then(data => setRows(data))
+			.catch(console.error);
+	}, []);
+
     return (
         <main>
             <h1 className='meal-of-day-title'>Meals of the Day</h1>
-        {/* Logic to show different types of food on button click goes here */}
 		<ul>
 			{rows.map(row => (
 				<li key={row.id}>
