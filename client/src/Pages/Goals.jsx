@@ -47,11 +47,9 @@ return (
 
     {/* Recconmended Meal Section (Logic Needed) */}
     <section>Reconmeded Meal:
-		<ul>
-			<li>
-				<strong>{row.name}</strong> - {row.dietary}
-			</li>
-		</ul>
+		<div>
+			<strong>{row.name}</strong> - {row.dietary}
+		</div>
 	</section>
     </main>
    
