@@ -40,6 +40,14 @@ app.get("/api/config", (req, res) => {
 	res.json(rows);
 });
 
+// For just one row...
+app.get("/api/config/:id", (req, res) => {
+	const id = req.params.id;
+	const row = db.prepare("SELECT * FROM config WHERE id = ?").get(id);
+	if (!row) return res.status(404).json({ error: "not found"});
+	res.json(row_;
+});
+
 app.listen(4000, () => {
 	console.log(`API running at http://localhost:4000`);
 });
