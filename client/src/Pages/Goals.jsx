@@ -20,7 +20,7 @@ const Goals = () => {
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:4000/api/config/1")
+		fetch("http://localhost:4000/api/config/latest")
 			.then(res => res.json())
 			.then(data => setRows(data))
 			.catch(console.error);
@@ -49,7 +49,7 @@ return (
     <section>Reconmeded Meal:</section>
 		<ul>
 			{rows.map(row => (
-				<li key={row.id}>
+				<li>
 					<strong>{row.name}</strong> - {row.dietary}
 				</li>
 			))}
