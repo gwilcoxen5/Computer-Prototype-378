@@ -9,7 +9,7 @@ const MealsOfTheDay = () => {
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:4000/api/meal")
+		fetch("http://localhost:4000/api/config")
 			.then(res => res.json())
 			.then(data => setRows(data))
 			.catch(console.error);
