@@ -17,7 +17,7 @@ const Goals = () => {
     const navigate = useNavigate();
 
 	//TODO: Get an actual meal recommendation
-	const [row, setRow] = useState(null);
+	const [row, setRow] = useState([]);
 
 	useEffect(() => {
 		fetch("http://localhost:4000/api/config/1")
