@@ -37,3 +37,6 @@ app.get("/api/config", (req, res) => {
 	res.json(rows);
 });
 
+app.listen(4000, () => {
+	console.log(`API running at http://localhost:4000`);
+});
