@@ -8,7 +8,7 @@ const db = new Database("local.db");
 app.use(cors());
 app.use(express.json());
 
-// Creates a test table
+// Creates a table setup for SQL database
 db.prepare(`
 	CREATE TABLE IF NOT EXISTS config (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -17,3 +17,8 @@ db.prepare(`
 	ingredients TEXT NOT NULL
 	)
 `).run();
+
+// Test table
+const name = "Brownies";
+const dietary = "450 Cal, not dairy-free, not egg-free";
+const ingredients = "chocolate milk vegetable-oil egg";
