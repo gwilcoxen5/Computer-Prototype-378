@@ -24,6 +24,7 @@ const MealsOfTheDay = () => {
 					<strong>{row.name}</strong> - {row.dietary}
 				</li>
 			))}
+		</ul>
         <div>
             <button className='breakfast-btn'>Breakfast</button>
             <button className='lunch-btn'>Lunch</button>
