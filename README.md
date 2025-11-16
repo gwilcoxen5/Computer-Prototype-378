@@ -1,7 +1,10 @@
 # Computer-Prototype-378
 
 ## Build and Run Instructions ##
-`cd Computer-Prototype-378/client/`
+`cd server/`
+`npm install`
+`node index.js &`
+`cd ../client/`
 `npm install`
 `npm run dev`
 
