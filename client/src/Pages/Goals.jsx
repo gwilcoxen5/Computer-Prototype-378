@@ -46,15 +46,13 @@ return (
     <button onClick={() => navigate("/prefrences")}>Meal Plan Change</button>
 
     {/* Recconmended Meal Section (Logic Needed) */}
-    <section>Reconmeded Meal:</section>
+    <section>Reconmeded Meal:
 		<ul>
-			{rows.map(row => (
-				<li>
-					<strong>{row.name}</strong> - {row.dietary}
-				</li>
-			))}
+			<li>
+				<strong>{row.name}</strong> - {row.dietary}
+			</li>
 		</ul>
-
+	</section>
     </main>
    
 );
