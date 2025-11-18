@@ -16,3 +16,11 @@ dist
 .env.*
 .DS_Store
 server/local.db
+
+# local dev databases
+local.db
+local.db-*
+*.db
+*.db-journal
+*.db-shm
+*.db-wal

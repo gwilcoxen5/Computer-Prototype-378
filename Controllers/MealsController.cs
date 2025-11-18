@@ -1,26 +1,49 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using System.Linq;
 
 [ApiController]
 [Route("api/meals")]
 public class MealsController : ControllerBase
 {
-    private static List<Meal> meals = new();
+    private readonly AppDbContext _db;
 
-    [HttpPost]
-    public IActionResult AddMeal(Meal meal)
+    public MealsController(AppDbContext db)
     {
-        meals.Add(meal);
-        return Ok(meal);
+        _db = db;
     }
 
     [HttpGet]
-    public IActionResult GetMeals([FromQuery] bool? vegetarian, [FromQuery] bool? vegan)
+    public async Task<IActionResult> GetMeals(
+        [FromQuery] string? plan,
+        [FromQuery] string? type)
     {
-        var result = meals.AsEnumerable();
-        if (vegetarian.HasValue) result = result.Where(m => m.Vegetarian == vegetarian.Value);
-        if (vegan.HasValue) result = result.Where(m => m.Vegan == vegan.Value);
-        return Ok(result);
+        IQueryable<Meal> query = _db.Meals;
+
+        if (!string.IsNullOrWhiteSpace(plan))
+            query = query.Where(m => m.Plan == plan);
+
+        if (!string.IsNullOrWhiteSpace(type))
+            query = query.Where(m => m.Type == type);
+
+        var meals = await query.ToListAsync();
+        return Ok(meals);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetMeal(int id)
+    {
+        var meal = await _db.Meals.FindAsync(id);
+        if (meal == null) return NotFound();
+        return Ok(meal);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddMeal(Meal meal)
+    {
+        _db.Meals.Add(meal);
+        await _db.SaveChangesAsync();
+        return Ok(meal);
     }
 }

@@ -1,41 +1,60 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+const API_URL = "http://localhost:5000/api/meals"; // change to 5001,5002, whatver it is
 
-const MealsOfTheDay = () => {
+export default function MealsOfTheDay() {
+  const navigate = useNavigate();
+  const [meals, setMeals] = useState([]);
+  const [error, setError] = useState("");
 
-    const navigate = useNavigate();
+  useEffect(() => {
+    async function loadMeals() {
+      try {
+        console.log("Fetching from:", API_URL);
+        const res = await fetch(API_URL);
 
-	//TODO: Only show meals that fit the time of day
-	const [rows, setRows] = useState([]);
+        if (!res.ok) {
+          throw new Error("Request failed: " + res.status);
+        }
 
-	useEffect(() => {
-		fetch("http://localhost:4000/api/config")
-			.then(res => res.json())
-			.then(data => setRows(data))
-			.catch(console.error);
-	}, []);
+        const data = await res.json();
+        console.log("Meals from API:", data);
+        setMeals(data);
+      } catch (err) {
+        console.error("Error loading meals:", err);
+        setError("Could not load meals.");
+      }
+    }
 
-    return (
-        <main>
-            <h1 className='meal-of-day-title'>Meals of the Day</h1>
-		<ul>
-			{rows.map(row => (
-				<li key={row.id}>
-					<strong>{row.name}</strong> - {row.dietary}
-				</li>
-			))}
-		</ul>
-        <div>
-            <button className='breakfast-btn'>Breakfast</button>
-            <button className='lunch-btn'>Lunch</button>
-            <button className='dinner-btn'>Dinner</button>
-        </div>
-            <p className='popular-meals-tab'>Check Popular Meals This Week</p>
-            <button onClick={() => navigate("/")}>Home</button>
-        </main>
-    );
-    
- };
+    loadMeals();
+  }, []);
 
-export default MealsOfTheDay;
+  return (
+    <main className="meals-page">
+      <h1>Meals of the Day</h1>
+
+      <div className="meal-buttons">
+        <button className="breakfast-btn">Breakfast</button>
+        <button className="lunch-btn">Lunch</button>
+        <button className="dinner-btn">Dinner</button>
+      </div>
+
+      <p className="popular-meals-tab">Check Popular Meals This Week</p>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <ul style={{ marginTop: "1rem" }}>
+        {meals.map((meal) => (
+          <li key={meal.id}>
+            <strong>{meal.name}</strong> – {meal.dietary}
+          </li>
+        ))}
+      </ul>
+
+      <button className="home-button" onClick={() => navigate("/")}>
+        Home
+      </button>
+    </main>
+  );
+}

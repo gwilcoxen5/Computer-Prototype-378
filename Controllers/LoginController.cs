@@ -1,32 +1,54 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/users")]
 public class UsersController : ControllerBase
 {
-    private static List<User> users = new();
+    private readonly AppDbContext _db;
+
+    public UsersController(AppDbContext db)
+    {
+        _db = db;
+    }
 
     [HttpPost("signup")]
-    public IActionResult Signup(SignupDto dto)
+    public async Task<IActionResult> Signup(SignupDto dto)
     {
-        var user = new User { Id = users.Count + 1, Username = dto.Username, Email = dto.Email, Password = dto.Password };
-        users.Add(user);
+        bool usernameTaken = await _db.Users.AnyAsync(u => u.Username == dto.Username);
+        bool emailTaken = await _db.Users.AnyAsync(u => u.Email == dto.Email);
+
+        if (usernameTaken) return BadRequest("Username already taken.");
+        if (emailTaken) return BadRequest("Email already in use.");
+
+        var user = new User
+        {
+            Username = dto.Username,
+            Email = dto.Email,
+            Password = dto.Password
+        };
+
+        _db.Users.Add(user);
+        await _db.SaveChangesAsync();
         return Ok(user);
     }
 
     [HttpPost("login")]
-    public IActionResult Login(LoginDto dto)
+    public async Task<IActionResult> Login(LoginDto dto)
     {
-        var user = users.FirstOrDefault(u => u.Username == dto.Username && u.Password == dto.Password);
-        return user != null ? Ok(user) : Unauthorized();
+        var user = await _db.Users
+            .FirstOrDefaultAsync(u => u.Username == dto.Username && u.Password == dto.Password);
+
+        if (user == null) return Unauthorized("Invalid username or password.");
+        return Ok(user);
     }
 
     [HttpPost("forgot")]
-    public IActionResult Forgot(ForgotDto dto)
+    public async Task<IActionResult> Forgot(ForgotDto dto)
     {
-        var user = users.FirstOrDefault(u => u.Email == dto.Email);
-        return user != null ? Ok("Reset link sent") : NotFound("Email not found");
+        var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+        if (user == null) return NotFound("Email not found.");
+        return Ok("Reset link sent.");
     }
 }

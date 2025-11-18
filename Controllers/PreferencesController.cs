@@ -1,25 +1,43 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/preferences")]
 public class PreferencesController : ControllerBase
 {
-    private static List<Preferences> prefs = new();
+    private readonly AppDbContext _db;
+
+    public PreferencesController(AppDbContext db)
+    {
+        _db = db;
+    }
 
     [HttpPost]
-    public IActionResult SetPreferences(Preferences p)
+    public async Task<IActionResult> SetPreferences(Preferences p)
     {
-        prefs.RemoveAll(x => x.UserId == p.UserId);
-        prefs.Add(p);
+        var existing = await _db.Preferences.FirstOrDefaultAsync(x => x.UserId == p.UserId);
+
+        if (existing == null)
+        {
+            _db.Preferences.Add(p);
+        }
+        else
+        {
+            existing.Vegetarian = p.Vegetarian;
+            existing.Vegan = p.Vegan;
+            existing.Allergies = p.Allergies;
+        }
+
+        await _db.SaveChangesAsync();
         return Ok(p);
     }
 
     [HttpGet("{userId}")]
-    public IActionResult GetPreferences(int userId)
+    public async Task<IActionResult> GetPreferences(int userId)
     {
-        var pref = prefs.FirstOrDefault(p => p.UserId == userId);
-        return pref != null ? Ok(pref) : NotFound();
+        var pref = await _db.Preferences.FirstOrDefaultAsync(p => p.UserId == userId);
+        if (pref == null) return NotFound();
+        return Ok(pref);
     }
 }
