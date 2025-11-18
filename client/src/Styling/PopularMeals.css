@@ -1,0 +1,62 @@
+
+.page-title {
+  font-size: 50px;     
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  margin-top: 30px; 
+}
+
+.meals-page h1 {
+  color: black;
+  font-weight: 700;
+}
+
+
+.popular-meals-container {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.meals-for-plan-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+}
+
+
+.clicked {
+  background-color: forestgreen !important;
+  color: white !important;
+}
+
+.popular-meals-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.popular-meals-list li {
+  margin-bottom: 10px;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 350px;
+}
+
+.back-page-btn,
+.home-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}

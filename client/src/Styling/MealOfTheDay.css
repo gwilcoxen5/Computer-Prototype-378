@@ -1,0 +1,89 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.meals-page h1 {
+  color: black;
+  font-weight: 700;
+}
+
+
+.meals-page {
+  background-image: url("../Images/yourBackgroundImage.jpg"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.meal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+
+.meal-buttons button {
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+
+.clicked {
+  background-color: forestgreen !important;
+  color: white !important;
+}
+
+
+.nav-btn {
+  position: relative;
+  bottom: -50px;
+}
+
+
+.popular-meals-tab {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  text-decoration: underline;
+}
+
+
+.meal-of-day-title {
+  color: black;
+}
+
+.meal-of-day-subtitle {
+  color: black;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+
+.meal-of-day-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.home-button {
+  margin-top: 600px;
+
+}

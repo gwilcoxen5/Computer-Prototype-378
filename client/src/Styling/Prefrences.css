@@ -68,5 +68,7 @@ body {
 
 .nav-btn {
     position: relative;
+    justify-content: center;
     bottom: -50px;
+    gap: 50px;
 }

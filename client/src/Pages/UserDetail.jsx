@@ -81,8 +81,7 @@ const userDetail = () => {
                 <div>
                     <label className="time-interval-prompt">Set desired time intverval (weeks)</label>
                     <div className="time-interval-dropdown">
-                        {/* Potential drop down menu for time interval */}
-                        {/* 0-100 drop down for now (could change later)*/}
+                      
                         <select 
                             className="time-interval-select"
                             value={timeInterval.amount}
@@ -95,7 +94,7 @@ const userDetail = () => {
                             ))}
                         </select>
 
-                        {/* Unit of Time Drop Down */}
+                      
                         <select
                             className='time-interval-select'
                             value={timeInterval.unit}
@@ -109,14 +108,14 @@ const userDetail = () => {
                 </div>
                 
                 <div>
-                    {/* Logic to determine difficulty would go here */}
+                    
                 </div>
                 </div>
                
-                {/* Navigation Buttons */}
+         
                 <button className="back-goal-btn" onClick={() => navigate("/myGoals")} >Back to Goal</button>
                 <button className="prefrence-btn" onClick={() => navigate("/prefrences")}>Prefrences</button>
-                {/* For testing */}
+          
                 <button onClick={() => navigate("/")}>Home</button>
             </main>
         </div>
