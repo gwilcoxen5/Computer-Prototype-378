@@ -3,21 +3,22 @@
 ## Build and Run Instructions ##
 
 ### MacOS, Linux, BSD, or other Unix-like OSes...
-`cd server/`
+`cd client/`
 `npm install`
-`node index.js &`
-`cd ../client/`
-`npm install`
-`npm run dev`
+`npm run dev &`
+`cd ..`
+`dotnet build`
+`dotnet run`
+Then navigate to `http://localhost:5173/` in your web browser!
 
 ### Windows
-`cd server`
-`npm install`
-`Start-Process node index.js`
-`cd ..\`
 `cd client`
 `npm install`
-`npm run dev`
+`Start-Process npm run dev`
+`cd ../`
+`dotnet build`
+`dotnet run`
+Then navigate to `http://localhost:5173/` in your web browser!
 
 ## Tasks to be Completed ##
 
@@ -32,3 +33,4 @@ User will be able to set preferences so that allergies and dislikes are handled 
 
 ## Main Feature ##
 User will be able to retrieve meals from a local database.
+
