@@ -66,9 +66,11 @@ body {
     color: red;
 }
 
-.nav-btn {
+.pref-nav-container {
     position: relative;
-    justify-content: center;
-    bottom: -50px;
-    gap: 50px;
+    bottom: -500px
+}
+
+.meals-btn {
+    margin-left: 2rem;
 }

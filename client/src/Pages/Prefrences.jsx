@@ -72,9 +72,12 @@ const Prefrences = () => {
                     ))}
                 </ul>
                 </div>
-                <button className='nav-btn' onClick={()=> navigate("/myGoals")}>Back to Goals</button>
                 {/* For testing */}
-                <button className='nav-btn' onClick={() => navigate("/")}>Home</button>
+                <div className='pref-nav-container'>
+                <button className="back-goal-btn" onClick={() => navigate("/myGoals")} >Back to Goal</button>
+                <button className='home-btn' onClick={() => navigate("/")}>Home</button>
+                <button className='meals-btn' onClick={() => navigate("/mealsOfDay")}>Meals of the Day</button>
+                </div>
             </div>
         </div>
     </>

@@ -131,3 +131,33 @@
     color: black;
     background-color: aliceblue;
 }
+
+.back-goal-btn {
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: background-color 0.8s ease;
+}
+
+.back-goal-btn:hover {
+    background-color: #0056b3;
+}
+
+.prefrence-btn {
+    margin: 1rem;
+    cursor: pointer;
+    transition: background-color 0.8s ease;
+}
+
+.prefrence-btn:hover {
+    background-color: #0056b3;
+}
+
+.home-btn {
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: background-color 0.8s ease;
+}
+
+.home-btn:hover {
+    background-color: #0056b3;
+} 

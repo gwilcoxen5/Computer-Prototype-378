@@ -59,7 +59,7 @@ export default function MealsOfTheDay() {
             </button>
           </div>
 
-          <p className="popular-meals-tab">Check Popular Meals This Week</p>
+          <button className="popular-meals-tab" onClick={() => navigate("/popularMealsOfWeek")}>Check Popular Meals This Week</button>
 
           {error && <p style={{ color: "red" }}>{error}</p>}
 

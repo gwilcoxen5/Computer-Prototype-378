@@ -112,11 +112,12 @@ const userDetail = () => {
                 </div>
                 </div>
                
-         
+                <div className='nav-container'>
                 <button className="back-goal-btn" onClick={() => navigate("/myGoals")} >Back to Goal</button>
                 <button className="prefrence-btn" onClick={() => navigate("/prefrences")}>Prefrences</button>
-          
-                <button onClick={() => navigate("/")}>Home</button>
+                <button className='home-btn' onClick={() => navigate("/")}>Home</button>
+                </div>
+
             </main>
         </div>
     </>

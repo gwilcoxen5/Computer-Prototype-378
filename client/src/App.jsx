@@ -22,7 +22,7 @@ function Home() {
        <h1 className="welcome-text>">Welcome to {APP_NAME}</h1>
        {/* Login Button */}
        <button className="login-btn" onClick={() => navigate("/login")}>Login</button>
-       <p className='sign-up-text'>Need an account?</p>
+       <p>Need an account?</p>
        {/* Sign Up Button */}
        <button className="sign-up-btn" onClick={() => navigate("/signup")}>Create a Account</button>
     </section>
@@ -31,6 +31,7 @@ function Home() {
     <section>Pages to Navigate (TEST):</section>
     <button onClick={() => navigate("/userDetail")}>User Details Page</button>
     <button onClick={() => navigate("/prefrences")}>Prefrences Page</button>
+    <button onClick={() => navigate("/myGoals")}>Goals Page</button>
     <button onClick={() => navigate("/mealsOfDay")}>Meals of The Day</button>
     <button onClick={() => navigate("/popularMealsOfWeek")}>Popular Meals of The Week</button>
 
