@@ -56,7 +56,6 @@ body {
 
 .popular-meals-tab {
   position: relative;
-  bottom: -40rem;
   font-size: 25px;
   font-weight: bold;
   text-align: center;
@@ -84,5 +83,5 @@ body {
 }
 
 .home-button {
-  margin-top: 600px;
+  margin-top: 50px;
 }
