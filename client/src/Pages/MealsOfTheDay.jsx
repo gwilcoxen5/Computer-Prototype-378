@@ -63,7 +63,7 @@ export default function MealsOfTheDay() {
 
           {error && <p style={{ color: "red" }}>{error}</p>}
 
-          <ul style={{ marginTop: "1rem" }}>
+          <ul className='meal-text' style={{ marginTop: "1rem" }}>
             {meals.map((meal) => (
               <li key={meal.id}>
                 <strong>{meal.name}</strong> – {meal.dietary}
