@@ -93,10 +93,10 @@ using (var scope = app.Services.CreateScope())
             new Meal { Name = "Stuffed Bell Peppers", Dietary = "520 Cal, balanced, gluten-free", Ingredients = "bell_peppers ground_turkey brown_rice tomato_sauce cheese", Plan = "maintain", Type = "dinner" },
             new Meal { Name = "Grilled Fish Tacos", Dietary = "430 Cal, contains gluten, contains fish", Ingredients = "corn_tortillas grilled_white_fish cabbage_slaw salsa", Plan = "loss", Type = "dinner" },
             new Meal { Name = "Chicken Alfredo Pasta", Dietary = "900 Cal, very high calorie, contains dairy, contains gluten", Ingredients = "fettuccine_pasta chicken_breast alfredo_sauce parmesan", Plan = "gain", Type = "dinner" },
-            new Meal { Name = "Veggie Pesto Pasta", Dietary = "540 Cal, vegetarian, contains gluten, contains dairy", Ingredients = "penne_pasta pesto cherry_tomatoes spinach parmesan", Plan = "maintain", Type = "dinner" }
-            new Meal { Name = "Brownies", Dietary = "450 Cal, not dairy-free, not egg-free", Ingredients = "eggs milk chocolate flour oil butter", Plan = "gain", Type = "dinner" }
-            new Meal { Name = "Apple", Dietary = "950 cal, organic", Ingredients = "apple", Plan = "maintain", Type = "lunch" }
-            new Meal { Name = "Fried Chicken", Dietary = "1050 cal, fried, not dairy-free", Ingredients = "boneless-chicken flour bread-crumbs egg seasoning", Plan = "gain", Type = "lunch" }
+            new Meal { Name = "Veggie Pesto Pasta", Dietary = "540 Cal, vegetarian, contains gluten, contains dairy", Ingredients = "penne_pasta pesto cherry_tomatoes spinach parmesan", Plan = "maintain", Type = "dinner" },
+            new Meal { Name = "Brownies", Dietary = "450 Cal, not dairy-free, not egg-free", Ingredients = "eggs milk chocolate flour oil butter", Plan = "gain", Type = "dinner" },
+            new Meal { Name = "Apple", Dietary = "950 cal, organic", Ingredients = "apple", Plan = "maintain", Type = "lunch" },
+            new Meal { Name = "Fried Chicken", Dietary = "1050 cal, fried, not dairy-free", Ingredients = "boneless-chicken flour bread-crumbs egg seasoning", Plan = "gain", Type = "lunch" },
             new Meal { Name = "Strawberry Banana Smoothie", Dietary = "800 cal, not dairy-free, organic", Ingredients = "strawberry banana milk sugar cream yogurt", Plan = "gain", Type = "breakfast" }
         );
 
@@ -109,3 +109,4 @@ app.UseCors();
 app.MapControllers();
 
 app.Run();
+
